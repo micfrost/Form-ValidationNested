@@ -1,2 +1,7 @@
-package dev.micfro.validationnested.repository;public class EmployeeRepository {
+package dev.micfro.validationnested.repository;
+
+import dev.micfro.validationnested.model.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }

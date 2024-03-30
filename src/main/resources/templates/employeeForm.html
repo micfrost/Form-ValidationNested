@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
 </head>
 <body>
-$END$
+<h1>Employee Details</h1>
+<form th:action="@{/employee}" method="post">
+
+    <p th:if="${#fields.hasErrors('employee.firstName')}" class="error">First Name is required!</p>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" th:field="${employee.firstName}" id="firstName" name="firstName">
+    <br>
+
+    <p th:if="${#fields.hasErrors('employee.lastName')}" class="error">Last Name is required!</p>
+    <label for="lastName">Last Name:</label>
+    <input type="text" th:field="${employee.lastName}" id="lastName" name="lastName">
+    <br>
+
+    <p th:if="${#fields.hasErrors('employee.email')}" class="error">Email is required!</p>
+    <label for="email">Email:</label>
+    <input type="text" th:field="${employee.email}" id="email" name="email">
+    <br>
+
+
+    <h2>Address</h2>
+    <p th:if="${#fields.hasErrors('employee.address.street')}" class="error">Street is required!</p>
+    <label for="street">Street:</label>
+    <input type="text" th:field="${employee.address.street}" id="street" name="address.street">
+    <br>
+
+    <p th:if="${#fields.hasErrors('employee.address.city')}" class="error">City is required!</p>
+    <label for="city">City:</label>
+    <input type="text" th:field="${employee.address.city}" id="city" name="address.city">
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
